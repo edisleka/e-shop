@@ -1,23 +1,11 @@
-import { lightColors } from '@/constants/COLORS'
-import { Pressable, StyleSheet, Text, View } from 'react-native'
+import { Pressable, Text, View } from 'react-native'
 
 export const SkipBtn = () => {
   return (
-    <View style={styles.container}>
+    <View className='self-end'>
       <Pressable>
-        <Text style={styles.skipBtnText}>Skip</Text>
+        <Text className='will-change-variable text-primary text-xl'>Skip</Text>
       </Pressable>
     </View>
   )
 }
-
-const styles = StyleSheet.create({
-  container: {
-    alignSelf: 'flex-end',
-    backgroundColor: lightColors.success,
-  },
-  skipBtnText: {
-    color: lightColors.text,
-    fontSize: 20,
-  },
-})

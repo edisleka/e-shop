@@ -1,6 +1,7 @@
 import '@root/global.css'
 import { Stack } from 'expo-router'
 import { StatusBar } from 'expo-status-bar'
+import { GestureHandlerRootView } from 'react-native-gesture-handler'
 
 const InitialLayout = () => {
   const isAuthenticated = false
@@ -26,7 +27,11 @@ const InitialLayout = () => {
 }
 
 export const RootLayout = () => {
-  return <InitialLayout />
+  return (
+    <GestureHandlerRootView style={{ flex: 1 }}>
+      <InitialLayout />
+    </GestureHandlerRootView>
+  )
 }
 
 export default RootLayout

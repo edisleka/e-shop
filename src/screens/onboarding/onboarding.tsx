@@ -1,11 +1,8 @@
 import { SkipBtn } from '@/components/onboarding/SkipBtn'
-import { lightColors } from '@/constants/COLORS'
 import { onboardingSlides } from '@constants/onboarding/onboarding'
-// import { useOnboardingStore } from '@/store/onboardingStore'
-import { LinearGradient } from 'expo-linear-gradient'
+import { PressableScale } from 'pressto'
 import { useState } from 'react'
 import { Pressable, Text, View } from 'react-native'
-import Animated, { FadeIn, FadeOut } from 'react-native-reanimated'
 import { SafeAreaView } from 'react-native-safe-area-context'
 
 export default function OnboardingScreen() {
@@ -23,104 +20,53 @@ export default function OnboardingScreen() {
   }
 
   return (
-    <SafeAreaView style={{ backgroundColor: lightColors.surface, flex: 1 }}>
-      <View style={{ flex: 1, paddingHorizontal: 24 }}>
+    <SafeAreaView style={{ backgroundColor: '#FFFFFF', flex: 1 }}>
+      <View className='flex-1 px-6'>
         <SkipBtn />
 
-        <View style={{ flex: 1 }}>
-          <View style={{ flex: 1 }}>
-            <Animated.View
-              key={currentSlideIndex}
-              entering={FadeIn.duration(500)}
-              exiting={FadeOut.duration(300)}
-              style={{ flex: 1 }}
-            >
-              {currentSlide.image}
-            </Animated.View>
+        <View className='flex-1'>
+          <View className='flex-1'>
+            <View className='flex-1'>{currentSlide.image}</View>
           </View>
 
-          <Animated.View
-            key={`text-${currentSlideIndex}`}
-            entering={FadeIn.duration(500)}
-            exiting={FadeOut.duration(300)}
-            style={{ flexDirection: 'column', gap: 16, marginBottom: 48 }}
-          >
-            <Text
-              style={{
-                color: lightColors.text,
-                fontSize: 24,
-                fontWeight: '600',
-              }}
-            >
+          <View className='flex-col gap-4 mb-12'>
+            <Text className='will-change-variable text-2xl font-semibold'>
               {currentSlide.title}
             </Text>
 
-            <Text
-              // style={{
-              //   color: lightColors.text,
-              //   fontSize: 24,
-              //   fontWeight: '600',
-              //   marginTop: -8,
-              // }}
-              className='will-change-variable text-2xl font-bold -mt-2 text-red-500'
-            >
+            <Text className='will-change-variable text-2xl font-bold -mt-2 text-secondary'>
               {currentSlide.secondTitle}
             </Text>
-            <Text
-              style={{
-                color: lightColors.text,
-                fontSize: 16,
-                lineHeight: 24,
-                opacity: 0.9,
-              }}
-            >
+            <Text className='will-change-variable text-base leading-6 opacity-90'>
               {currentSlide.subTitle}
             </Text>
-          </Animated.View>
+          </View>
         </View>
 
-        <View style={{ flexDirection: 'row' }}>
-          <View style={{ flexDirection: 'row', alignItems: 'center', flex: 1 }}>
+        <View className='flex-row'>
+          <View className='flex-row items-center flex-1'>
             {onboardingSlides.map((_, index) => (
               <Pressable
                 key={index}
                 onPress={() => setCurrentSlideIndex(index)}
-                style={{
-                  height: 8,
-                  borderRadius: 10,
-                  marginHorizontal: 4,
-                  backgroundColor:
-                    index === currentSlideIndex
-                      ? lightColors.gradients.primary[1]
-                      : lightColors.gradients.primary[0],
-                  // opacity: index === currentSlideIndex ? 1 : 0.5,
-                  width: index === currentSlideIndex ? 32 : 16,
-                }}
+                className={`will-change-variable h-2 mx-2.5 rounded-xl bg-primary-deep-blue ${index === currentSlideIndex ? 'w-8 opacity-100' : 'w-4 opacity-50'}`}
               />
             ))}
           </View>
-          <LinearGradient
-            colors={lightColors.gradients.primary}
-            start={{ x: 0, y: 0 }}
-            end={{ x: 1, y: 1 }}
+
+          <PressableScale
+            onPress={nextSlide}
             style={{
+              backgroundColor: '#1a1773',
               borderRadius: 10,
+              paddingVertical: 12,
+              paddingHorizontal: 24,
             }}
           >
-            <Pressable
-              style={{
-                justifyContent: 'center',
-                alignItems: 'center',
-                paddingVertical: 12,
-                paddingHorizontal: 24,
-              }}
-              onPress={nextSlide}
-            >
-              <Text style={{ color: 'white', fontSize: 16, fontWeight: '500' }}>
-                {isLastSlide ? 'Get Started' : 'Continue'}
-              </Text>
-            </Pressable>
-          </LinearGradient>
+            <Text className='text-white text-base font-medium'>
+              {isLastSlide ? 'Get Started' : 'Continue'}
+            </Text>
+          </PressableScale>
         </View>
       </View>
     </SafeAreaView>
