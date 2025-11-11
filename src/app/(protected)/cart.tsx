@@ -1,9 +1,9 @@
 import { Text, View } from 'react-native'
 
-export default function Onboarding() {
+export default function Cart() {
   return (
     <View>
-      <Text>Onboarding</Text>
+      <Text>Cart</Text>
     </View>
   )
 }
