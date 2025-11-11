@@ -1,4 +1,6 @@
+import '@root/global.css'
 import { Stack } from 'expo-router'
+import { StatusBar } from 'expo-status-bar'
 
 const InitialLayout = () => {
   const isAuthenticated = false
@@ -6,17 +8,20 @@ const InitialLayout = () => {
   const isLoading = false
 
   return (
-    <Stack>
-      <Stack.Protected guard={!hasCompletedOnboarding && !isAuthenticated}>
-        <Stack.Screen name='(onboarding)' options={{ headerShown: false }} />
-      </Stack.Protected>
-      <Stack.Protected guard={hasCompletedOnboarding && !isAuthenticated}>
-        <Stack.Screen name='(auth)' options={{ headerShown: false }} />
-      </Stack.Protected>
-      <Stack.Protected guard={isAuthenticated && hasCompletedOnboarding}>
-        <Stack.Screen name='(protected)' options={{ headerShown: false }} />
-      </Stack.Protected>
-    </Stack>
+    <>
+      <StatusBar style='auto' />
+      <Stack>
+        <Stack.Protected guard={!hasCompletedOnboarding && !isAuthenticated}>
+          <Stack.Screen name='(onboarding)' options={{ headerShown: false }} />
+        </Stack.Protected>
+        <Stack.Protected guard={hasCompletedOnboarding && !isAuthenticated}>
+          <Stack.Screen name='(auth)' options={{ headerShown: false }} />
+        </Stack.Protected>
+        <Stack.Protected guard={isAuthenticated && hasCompletedOnboarding}>
+          <Stack.Screen name='(protected)' options={{ headerShown: false }} />
+        </Stack.Protected>
+      </Stack>
+    </>
   )
 }
 

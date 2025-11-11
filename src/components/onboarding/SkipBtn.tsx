@@ -1,3 +1,4 @@
+import { lightColors } from '@/constants/COLORS'
 import { Pressable, StyleSheet, Text, View } from 'react-native'
 
 export const SkipBtn = () => {
@@ -13,9 +14,10 @@ export const SkipBtn = () => {
 const styles = StyleSheet.create({
   container: {
     alignSelf: 'flex-end',
+    backgroundColor: lightColors.success,
   },
   skipBtnText: {
-    color: 'white',
+    color: lightColors.text,
     fontSize: 20,
   },
 })

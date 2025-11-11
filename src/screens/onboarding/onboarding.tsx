@@ -23,7 +23,7 @@ export default function OnboardingScreen() {
   }
 
   return (
-    <SafeAreaView style={{ backgroundColor: 'white', flex: 1 }}>
+    <SafeAreaView style={{ backgroundColor: lightColors.surface, flex: 1 }}>
       <View style={{ flex: 1, paddingHorizontal: 24 }}>
         <SkipBtn />
 
@@ -56,12 +56,13 @@ export default function OnboardingScreen() {
             </Text>
 
             <Text
-              style={{
-                color: lightColors.text,
-                fontSize: 24,
-                fontWeight: '600',
-                marginTop: -8,
-              }}
+              // style={{
+              //   color: lightColors.text,
+              //   fontSize: 24,
+              //   fontWeight: '600',
+              //   marginTop: -8,
+              // }}
+              className='will-change-variable text-2xl font-bold -mt-2 text-red-500'
             >
               {currentSlide.secondTitle}
             </Text>
@@ -90,8 +91,8 @@ export default function OnboardingScreen() {
                   marginHorizontal: 4,
                   backgroundColor:
                     index === currentSlideIndex
-                      ? lightColors.gradients.primary[0]
-                      : lightColors.primary,
+                      ? lightColors.gradients.primary[1]
+                      : lightColors.gradients.primary[0],
                   // opacity: index === currentSlideIndex ? 1 : 0.5,
                   width: index === currentSlideIndex ? 32 : 16,
                 }}
