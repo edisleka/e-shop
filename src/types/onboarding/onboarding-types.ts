@@ -5,3 +5,8 @@ export interface onboardingSlidesType {
   secondTitle: string
   subTitle: string
 }
+
+export interface OnboardingState {
+  hasCompletedOnboarding: boolean
+  completeOnboarding: (hasCompletedOnboarding: boolean) => void
+}

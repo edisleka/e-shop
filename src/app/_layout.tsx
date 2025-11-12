@@ -1,11 +1,12 @@
+import { useOnboardingStore } from '@/store/onboardingStore'
 import '@root/global.css'
 import { Stack } from 'expo-router'
 import { StatusBar } from 'expo-status-bar'
 import { GestureHandlerRootView } from 'react-native-gesture-handler'
 
 const InitialLayout = () => {
+  const { hasCompletedOnboarding } = useOnboardingStore()
   const isAuthenticated = false
-  const hasCompletedOnboarding = false
   const isLoading = false
 
   return (

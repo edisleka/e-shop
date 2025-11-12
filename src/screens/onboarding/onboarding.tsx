@@ -1,12 +1,13 @@
 import { SkipBtn } from '@/components/onboarding/SkipBtn'
 import { onboardingSlides } from '@constants/onboarding/onboarding'
+import { useOnboardingStore } from '@store/onboardingStore'
 import { PressableScale } from 'pressto'
 import { useState } from 'react'
 import { Pressable, Text, View } from 'react-native'
 import { SafeAreaView } from 'react-native-safe-area-context'
 
 export default function OnboardingScreen() {
-  // const { completeOnboarding } = useOnboardingStore()
+  const { completeOnboarding } = useOnboardingStore()
   const [currentSlideIndex, setCurrentSlideIndex] = useState(0)
   const currentSlide = onboardingSlides[currentSlideIndex]
   const isLastSlide = currentSlideIndex === onboardingSlides.length - 1
@@ -15,7 +16,7 @@ export default function OnboardingScreen() {
     if (currentSlideIndex < onboardingSlides.length - 1) {
       setCurrentSlideIndex(currentSlideIndex + 1)
     } else {
-      // completeOnboarding(true)
+      completeOnboarding(true)
     }
   }
 
