@@ -1,7 +1,9 @@
 import { ProductListItem } from '@/components/protected/ProductListItem'
 import { PRODUCTS } from '@data/products-data'
 import { LegendList } from '@legendapp/list'
-import { StyleSheet, Text, View } from 'react-native'
+import { StyleSheet, View } from 'react-native'
+
+import { ListHeader } from '@/components/protected/ListHeader'
 
 export default function Index() {
   return (
@@ -11,11 +13,7 @@ export default function Index() {
         renderItem={({ item }) => <ProductListItem product={item} />}
         keyExtractor={({ id }) => id.toString()}
         numColumns={2}
-        ListHeaderComponent={
-          <Text className='will-change-variable text-2xl font-bold mb-4 text-foreground'>
-            Products
-          </Text>
-        }
+        ListHeaderComponent={ListHeader}
         contentContainerStyle={styles.contentContainer}
         columnWrapperStyle={styles.columnWrapper}
         recycleItems
@@ -29,7 +27,7 @@ export default function Index() {
 const styles = StyleSheet.create({
   contentContainer: {
     paddingHorizontal: 16,
-    paddingBottom: 16,
+    paddingBottom: 100,
   },
   columnWrapper: {
     gap: 12,

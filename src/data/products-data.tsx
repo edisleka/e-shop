@@ -108,4 +108,39 @@ export const PRODUCTS: Product[] = [
     },
     maxQuantity: 3,
   },
+  {
+    id: 7,
+    title: 'Olaplex No.7 Bonding Oil 30ml',
+    slug: 'olaplex-no-7-bonding-oil-30ml',
+    heroImage: require('@img/e-shop/hair/olaplex-1.jpeg'),
+    imagesUrl: [
+      require('@img/e-shop/hair/olaplex-1.jpeg'),
+      require('@img/e-shop/hair/olaplex-2.jpeg'),
+    ],
+    price: 22.99,
+    category: {
+      imageUrl: require('@img/e-shop/hair/olaplex-1.jpeg'),
+      name: 'Hair',
+      slug: 'hair',
+    },
+    maxQuantity: 3,
+  },
+  {
+    id: 8,
+    title:
+      'MADARA Grow Volume Shampoo Organic Skincare Natural Hair Growth Shampoo 250ml',
+    slug: 'madara-grow-volume-shampoo-organic-skincare-natural-hair-growth-shampoo-250ml',
+    heroImage: require('@img/e-shop/hair/madara-1.jpeg'),
+    imagesUrl: [
+      require('@img/e-shop/hair/madara-1.jpeg'),
+      require('@img/e-shop/hair/madara-2.jpeg'),
+    ],
+    price: 22.99,
+    category: {
+      imageUrl: require('@img/e-shop/hair/madara-1.jpeg'),
+      name: 'Hair',
+      slug: 'hair',
+    },
+    maxQuantity: 7,
+  },
 ]

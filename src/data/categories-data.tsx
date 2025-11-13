@@ -23,4 +23,11 @@ export const CATEGORIES: Category[] = [
       'https://hips.hearstapps.com/hmg-prod/images/1-launchmetrics-lanvin-ham-s22-012-65e0f50285e40.jpg?crop=1.00xw:0.752xh;0,0.00962xh&resize=1800:*',
     products: PRODUCTS.filter((product) => product.category.slug === 'makeup'),
   },
+  {
+    name: 'Hair',
+    slug: 'hair',
+    imageUrl:
+      'https://www.med7online.com/cdn/shop/articles/577149-6178196.jpg?v=1754042871&width=1200',
+    products: PRODUCTS.filter((product) => product.category.slug === 'hair'),
+  },
 ]
