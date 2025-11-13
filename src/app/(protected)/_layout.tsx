@@ -17,6 +17,18 @@ export default function ProtectedLayout() {
           },
         }}
       />
+      <Stack.Screen
+        name='categories'
+        options={{
+          headerShown: false,
+        }}
+      />
+      <Stack.Screen
+        name='product'
+        options={{
+          headerShown: false,
+        }}
+      />
     </Stack>
   )
 }

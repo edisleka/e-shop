@@ -6,7 +6,7 @@ import { GestureHandlerRootView } from 'react-native-gesture-handler'
 
 const InitialLayout = () => {
   const { hasCompletedOnboarding } = useOnboardingStore()
-  const isAuthenticated = false
+  const isAuthenticated = true
   const isLoading = false
 
   return (
