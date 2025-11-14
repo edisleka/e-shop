@@ -1,9 +1,5 @@
-import { Text, View } from 'react-native'
+import Cart from '@/screens/cart/cart'
 
-export default function Cart() {
-  return (
-    <View>
-      <Text>Cart</Text>
-    </View>
-  )
+export default function CartScree() {
+  return <Cart />
 }

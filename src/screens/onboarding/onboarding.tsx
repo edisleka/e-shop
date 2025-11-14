@@ -6,7 +6,7 @@ import { useState } from 'react'
 import { Pressable, Text, View } from 'react-native'
 import { SafeAreaView } from 'react-native-safe-area-context'
 
-export default function OnboardingScreen() {
+export default function Onboarding() {
   const { completeOnboarding } = useOnboardingStore()
   const [currentSlideIndex, setCurrentSlideIndex] = useState(0)
   const currentSlide = onboardingSlides[currentSlideIndex]

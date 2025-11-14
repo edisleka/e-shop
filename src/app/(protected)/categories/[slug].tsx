@@ -1,9 +1,5 @@
-import { Text, View } from 'react-native'
+import Category from '@/screens/protected/categories/category'
 
-export default function Category() {
-  return (
-    <View>
-      <Text>Category</Text>
-    </View>
-  )
+export default function CategoryScreen() {
+  return <Category />
 }

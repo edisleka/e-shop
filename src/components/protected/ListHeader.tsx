@@ -1,4 +1,6 @@
+import { CATEGORIES } from '@/data/categories-data'
 import { FontAwesome } from '@expo/vector-icons'
+import { LegendList } from '@legendapp/list'
 import { Link } from 'expo-router'
 import {
   Image,
@@ -11,7 +13,7 @@ import {
 
 export const ListHeader = () => {
   return (
-    <View className='gap-5'>
+    <View className='gap-5 mb-5'>
       <View className='flex-row justify-between items-center'>
         <View className='flex-row items-center'>
           <View className='flex-row items-center mb-2.5'>
@@ -55,8 +57,26 @@ export const ListHeader = () => {
         />
       </View>
 
-      <View className=''>
+      <View>
         <Text className='text-2xl font-bold mb-2.5'>Categories</Text>
+        <LegendList
+          data={CATEGORIES}
+          renderItem={({ item }) => (
+            <Link href={`/categories/${item.slug}`} asChild>
+              <Pressable style={styles.category}>
+                <Image
+                  source={{ uri: item.imageUrl }}
+                  style={styles.categoryImage}
+                />
+                <Text style={styles.categoryText}>{item.name}</Text>
+              </Pressable>
+            </Link>
+          )}
+          keyExtractor={(item) => item.name}
+          recycleItems
+          horizontal
+          showsHorizontalScrollIndicator={false}
+        />
       </View>
     </View>
   )
@@ -116,9 +136,7 @@ const styles = StyleSheet.create({
     marginBottom: 10,
   },
   category: {
-    width: 100,
-    alignItems: 'center',
-    marginBottom: 16,
+    marginRight: 16,
   },
   categoryImage: {
     width: 60,
@@ -126,7 +144,13 @@ const styles = StyleSheet.create({
     borderRadius: 30,
     marginBottom: 8,
   },
-  categoryText: {},
+  categoryText: {
+    fontSize: 12,
+    textAlign: 'center',
+  },
+  categoriesListContent: {
+    paddingRight: 16,
+  },
   badgeContainer: {
     position: 'absolute',
     top: -5,

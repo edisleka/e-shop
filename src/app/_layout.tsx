@@ -22,6 +22,7 @@ const InitialLayout = () => {
         <Stack.Protected guard={isAuthenticated && hasCompletedOnboarding}>
           <Stack.Screen name='(protected)' options={{ headerShown: false }} />
         </Stack.Protected>
+        <Stack.Screen name='+not-found' />
       </Stack>
     </>
   )
