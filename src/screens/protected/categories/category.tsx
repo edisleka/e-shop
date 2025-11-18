@@ -1,8 +1,14 @@
-import Header from '@/components/protected/Header'
-import { CATEGORIES } from '@/data/categories-data'
 import { Category as CategoryType } from '@/types/category-types'
+import { Product as ProductType } from '@/types/product-types'
+import Header from '@components/protected/Header'
+import { ProductListItem } from '@components/protected/ProductListItem'
+import { CATEGORIES } from '@data/categories-data'
+import { PRODUCTS } from '@data/products-data'
+import { LegendList } from '@legendapp/list'
 import { Redirect, useLocalSearchParams } from 'expo-router'
-import { StyleSheet, Text, View } from 'react-native'
+import { StyleSheet, View } from 'react-native'
+
+import { CategoryListHeader } from '@components/protected/CategoryListHeader'
 
 export default function Category() {
   const { slug } = useLocalSearchParams<{ slug: string }>()
@@ -11,51 +17,41 @@ export default function Category() {
   )
   if (!category) return <Redirect href='/+not-found' />
 
+  const products = PRODUCTS.filter(
+    (product: ProductType) => product.category.slug === category.slug
+  )
+
   return (
-    <View className='flex-1 bg-surface'>
+    <>
       <Header title={category.name} />
-      <Text className='text-2xl font-bold'>{category.name}</Text>
-    </View>
+
+      <View className='flex-1'>
+        <LegendList
+          data={products}
+          renderItem={({ item }: { item: ProductType }) => (
+            <ProductListItem product={item} />
+          )}
+          keyExtractor={({ id }) => id.toString()}
+          recycleItems
+          numColumns={2}
+          contentContainerStyle={styles.contentContainer}
+          columnWrapperStyle={{ gap: 8 }}
+          ListHeaderComponent={() => (
+            <CategoryListHeader
+              title={category.name}
+              imageUrl={category.imageUrl}
+            />
+          )}
+          showsVerticalScrollIndicator={false}
+        />
+      </View>
+    </>
   )
 }
 
 const styles = StyleSheet.create({
-  categoryImage: {
-    width: '100%',
-    height: 200,
-    resizeMode: 'cover',
-    borderRadius: 8,
-    marginBottom: 16,
-  },
-  categoryName: {
-    fontSize: 24,
-    fontWeight: 'bold',
-    marginBottom: 16,
-  },
-  productsList: {
-    flexGrow: 1,
-  },
-  productRow: {
-    justifyContent: 'space-between',
-  },
-  productContainer: {
-    flex: 1,
-    margin: 8,
-  },
-  productImage: {
-    width: '100%',
-    height: 150,
-    resizeMode: 'cover',
-    borderRadius: 8,
-  },
-  productTitle: {
-    fontSize: 16,
-    fontWeight: 'bold',
-    marginTop: 8,
-  },
-  productPrice: {
-    fontSize: 14,
-    color: '#888',
-    marginTop: 4,
+  contentContainer: {
+    paddingHorizontal: 16,
+    paddingBottom: 120,
   },
 })

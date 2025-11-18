@@ -16,7 +16,7 @@ export const ListHeader = () => {
     <View className='gap-5 mb-5'>
       <View className='flex-row justify-between items-center'>
         <View className='flex-row items-center'>
-          <View className='flex-row items-center mb-2.5'>
+          <View className='flex-row items-center'>
             <Image
               source={{ uri: 'https://avatar.iran.liara.run/public/34' }}
               className='w-10 h-10 rounded-full mr-2.5'
@@ -25,7 +25,7 @@ export const ListHeader = () => {
           </View>
         </View>
         <View className='flex-row items-center'>
-          <Link href='/cart' asChild className='p-2.5'>
+          <Link href='/cart' asChild className=''>
             <Pressable>
               {({ pressed }) => (
                 <View>
@@ -57,7 +57,7 @@ export const ListHeader = () => {
         />
       </View>
 
-      <View>
+      <View className=''>
         <Text className='text-2xl font-bold mb-2.5'>Categories</Text>
         <LegendList
           data={CATEGORIES}
