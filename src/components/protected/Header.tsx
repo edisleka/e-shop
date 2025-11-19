@@ -6,7 +6,7 @@ export default function Header({ title }: { title: string }) {
   const router = useRouter()
 
   return (
-    <View className='bg-surface border-b border-gray-200 shadow-xs'>
+    <View className='bg-surface'>
       <View className='flex-row items-center justify-between px-2'>
         <TouchableOpacity
           onPress={() => router.back()}

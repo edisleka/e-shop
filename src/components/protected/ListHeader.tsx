@@ -1,6 +1,7 @@
 import { CATEGORIES } from '@/data/categories-data'
 import { FontAwesome } from '@expo/vector-icons'
 import { LegendList } from '@legendapp/list'
+import { useCartStore } from '@store/cartStore'
 import { Link } from 'expo-router'
 import {
   Image,
@@ -12,6 +13,8 @@ import {
 } from 'react-native'
 
 export const ListHeader = () => {
+  const { getItemCount } = useCartStore()
+
   return (
     <View className='gap-5 mb-5'>
       <View className='flex-row justify-between items-center'>
@@ -24,7 +27,7 @@ export const ListHeader = () => {
             <Text>Hello edisleka</Text>
           </View>
         </View>
-        <View className='flex-row items-center'>
+        <View className='flex-row items-center gap-4'>
           <Link href='/cart' asChild className=''>
             <Pressable>
               {({ pressed }) => (
@@ -33,11 +36,11 @@ export const ListHeader = () => {
                     name='shopping-cart'
                     size={25}
                     color='gray'
-                    style={{ marginRight: 15, opacity: pressed ? 0.5 : 1 }}
+                    style={{ opacity: pressed ? 0.5 : 1 }}
                   />
 
                   <View className='absolute -top-1.5 right-2.5 bg-[#1BC464] rounded-xl w-5 h-5 justify-center items-center'>
-                    <Text style={styles.badgeText}>1</Text>
+                    <Text style={styles.badgeText}>{getItemCount()}</Text>
                   </View>
                 </View>
               )}
@@ -117,7 +120,7 @@ const styles = StyleSheet.create({
     padding: 10,
   },
   signOutButton: {
-    padding: 10,
+    // padding: 10,
   },
   heroContainer: {
     width: '100%',
