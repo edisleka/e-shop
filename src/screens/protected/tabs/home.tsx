@@ -3,6 +3,7 @@ import { PRODUCTS } from '@data/products-data'
 import { LegendList } from '@legendapp/list'
 import { StyleSheet, View } from 'react-native'
 
+import { ListEmptyComponent } from '@/components/protected/ListEmptyComponent'
 import { ListHeader } from '@/components/protected/ListHeader'
 import { Product } from '@/types/product-types'
 
@@ -21,6 +22,7 @@ export default function Index() {
         columnWrapperStyle={{ gap: 8 }}
         recycleItems
         showsVerticalScrollIndicator={false}
+        ListEmptyComponent={ListEmptyComponent}
       />
     </View>
   )

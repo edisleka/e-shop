@@ -36,7 +36,7 @@ export const useCartStore = create<CartState>((set, get) => ({
       if (!product) return state
 
       return {
-        item: state.items.map((item) =>
+        items: state.items.map((item) =>
           item.id === id && item.quantity < product.maxQuantity
             ? { ...item, quantity: item.quantity + 1 }
             : item

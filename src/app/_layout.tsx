@@ -3,11 +3,12 @@ import '@root/global.css'
 import { Stack } from 'expo-router'
 import { StatusBar } from 'expo-status-bar'
 import { GestureHandlerRootView } from 'react-native-gesture-handler'
+import Toast from 'react-native-toast-message'
 
 const InitialLayout = () => {
   const { hasCompletedOnboarding } = useOnboardingStore()
   const isAuthenticated = true
-  const isLoading = false
+  // const isLoading = false
 
   return (
     <>
@@ -24,6 +25,7 @@ const InitialLayout = () => {
         </Stack.Protected>
         <Stack.Screen name='+not-found' />
       </Stack>
+      <Toast />
     </>
   )
 }

@@ -1,5 +1,7 @@
+import { ListEmptyComponent } from '@/components/protected/ListEmptyComponent'
 import { Category as CategoryType } from '@/types/category-types'
 import { Product as ProductType } from '@/types/product-types'
+import { CategoryListHeader } from '@components/protected/CategoryListHeader'
 import Header from '@components/protected/Header'
 import { ProductListItem } from '@components/protected/ProductListItem'
 import { CATEGORIES } from '@data/categories-data'
@@ -7,8 +9,6 @@ import { PRODUCTS } from '@data/products-data'
 import { LegendList } from '@legendapp/list'
 import { Redirect, useLocalSearchParams } from 'expo-router'
 import { StyleSheet, View } from 'react-native'
-
-import { CategoryListHeader } from '@components/protected/CategoryListHeader'
 
 export default function Category() {
   const { slug } = useLocalSearchParams<{ slug: string }>()
@@ -43,6 +43,7 @@ export default function Category() {
             />
           )}
           showsVerticalScrollIndicator={false}
+          ListEmptyComponent={ListEmptyComponent}
         />
       </View>
     </>

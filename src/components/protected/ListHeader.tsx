@@ -11,9 +11,18 @@ import {
   TouchableOpacity,
   View,
 } from 'react-native'
+// import Toast from 'react-native-toast-message'
 
 export const ListHeader = () => {
   const { getItemCount } = useCartStore()
+
+  // const showToast = () => {
+  //   Toast.show({
+  //     type: 'success',
+  //     text1: 'Hello',
+  //     text2: 'This is some something 👋',
+  //   })
+  // }
 
   return (
     <View className='gap-5 mb-5'>
@@ -27,6 +36,7 @@ export const ListHeader = () => {
             <Text>Hello edisleka</Text>
           </View>
         </View>
+
         <View className='flex-row items-center gap-4'>
           <Link href='/cart' asChild className=''>
             <Pressable>
