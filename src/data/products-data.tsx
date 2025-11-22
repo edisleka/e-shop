@@ -16,7 +16,7 @@ export const PRODUCTS: Product[] = [
       name: 'Body',
       slug: 'body',
     },
-    maxQuantity: 10,
+    maxQuantity: 5,
   },
   {
     id: 5,

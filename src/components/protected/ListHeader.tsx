@@ -1,7 +1,7 @@
+import CartBadge from '@/components/protected/CartBadge'
 import { CATEGORIES } from '@/data/categories-data'
 import { FontAwesome } from '@expo/vector-icons'
 import { LegendList } from '@legendapp/list'
-import { useCartStore } from '@store/cartStore'
 import { Link } from 'expo-router'
 import {
   Image,
@@ -14,8 +14,6 @@ import {
 // import Toast from 'react-native-toast-message'
 
 export const ListHeader = () => {
-  const { getItemCount } = useCartStore()
-
   // const showToast = () => {
   //   Toast.show({
   //     type: 'success',
@@ -38,24 +36,7 @@ export const ListHeader = () => {
         </View>
 
         <View className='flex-row items-center gap-4'>
-          <Link href='/cart' asChild className=''>
-            <Pressable>
-              {({ pressed }) => (
-                <View>
-                  <FontAwesome
-                    name='shopping-cart'
-                    size={25}
-                    color='gray'
-                    style={{ opacity: pressed ? 0.5 : 1 }}
-                  />
-
-                  <View className='absolute -top-1.5 right-2.5 bg-[#1BC464] rounded-xl w-5 h-5 justify-center items-center'>
-                    <Text style={styles.badgeText}>{getItemCount()}</Text>
-                  </View>
-                </View>
-              )}
-            </Pressable>
-          </Link>
+          <CartBadge />
           <TouchableOpacity style={styles.signOutButton}>
             <FontAwesome name='sign-out' size={25} color='red' />
           </TouchableOpacity>
