@@ -25,6 +25,8 @@ export default function Search() {
           </Pressable>
         )}
       </View>
+
+      {/* LegendList */}
     </>
   )
 }

@@ -9,12 +9,12 @@ export default function CartBadge() {
 
   return (
     <Link href='/cart' asChild>
-      <Pressable>
+      <Pressable className=''>
         {({ pressed }) => (
-          <View>
+          <View className='mt-2'>
             <FontAwesome
               name='shopping-cart'
-              size={24}
+              size={22}
               color='gray'
               style={{ opacity: pressed ? 0.5 : 1 }}
             />

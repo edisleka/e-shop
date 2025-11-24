@@ -39,11 +39,11 @@ export const ListHeader = () => {
       </View>
 
       <Pressable
-        className='flex-row items-center bg-gray-200 rounded-2xl px-4 py-3 gap-3 border border-gray-200'
+        className='flex-row items-center bg-gray-200 rounded-2xl px-2 py-1.5 gap-2 border border-gray-200'
         onPress={handleSearch}
       >
-        <Ionicons name='search' size={20} color='#9CA3AF' />
-        <Text className='text-gray-400 flex-1'>Search products...</Text>
+        <Ionicons name='search' size={16} color='#9CA3AF' />
+        <Text className='text-gray-400 flex-1 text-sm'>Search products...</Text>
       </Pressable>
 
       <View className='w-full h-50'>
@@ -55,7 +55,7 @@ export const ListHeader = () => {
       </View>
 
       <View className=''>
-        <Text className='text-2xl font-bold mb-2.5'>Categories</Text>
+        <Text className='text-xl font-semibold mb-2.5'>Categories</Text>
         <LegendList
           data={CATEGORIES}
           renderItem={({ item }) => (
@@ -63,9 +63,9 @@ export const ListHeader = () => {
               <Pressable>
                 <Image
                   source={{ uri: item.imageUrl }}
-                  style={styles.categoryImage}
+                  className='w-14 h-14 rounded-full mb-2 border border-secondary'
                 />
-                <Text style={styles.categoryText}>{item.name}</Text>
+                <Text className='text-xs text-center'>{item.name}</Text>
               </Pressable>
             </Link>
           )}
@@ -138,16 +138,7 @@ const styles = StyleSheet.create({
   category: {
     marginRight: 16,
   },
-  categoryImage: {
-    width: 60,
-    height: 60,
-    borderRadius: 30,
-    marginBottom: 8,
-  },
-  categoryText: {
-    fontSize: 12,
-    textAlign: 'center',
-  },
+
   categoriesListContent: {
     paddingRight: 16,
   },
