@@ -1,19 +1,17 @@
 import CartBadge from '@/components/protected/CartBadge'
 import { CATEGORIES } from '@/data/categories-data'
-import { FontAwesome } from '@expo/vector-icons'
+import { Ionicons } from '@expo/vector-icons'
 import { LegendList } from '@legendapp/list'
-import { Link } from 'expo-router'
-import {
-  Image,
-  Pressable,
-  StyleSheet,
-  Text,
-  TouchableOpacity,
-  View,
-} from 'react-native'
+import { Link, useRouter } from 'expo-router'
+import { Image, Pressable, StyleSheet, Text, View } from 'react-native'
 // import Toast from 'react-native-toast-message'
 
 export const ListHeader = () => {
+  const router = useRouter()
+
+  const handleSearch = () => {
+    router.push('/search')
+  }
   // const showToast = () => {
   //   Toast.show({
   //     type: 'success',
@@ -37,11 +35,16 @@ export const ListHeader = () => {
 
         <View className='flex-row items-center gap-4'>
           <CartBadge />
-          <TouchableOpacity style={styles.signOutButton}>
-            <FontAwesome name='sign-out' size={25} color='red' />
-          </TouchableOpacity>
         </View>
       </View>
+
+      <Pressable
+        className='flex-row items-center bg-gray-200 rounded-2xl px-4 py-3 gap-3 border border-gray-200'
+        onPress={handleSearch}
+      >
+        <Ionicons name='search' size={20} color='#9CA3AF' />
+        <Text className='text-gray-400 flex-1'>Search products...</Text>
+      </Pressable>
 
       <View className='w-full h-50'>
         <Image
@@ -57,7 +60,7 @@ export const ListHeader = () => {
           data={CATEGORIES}
           renderItem={({ item }) => (
             <Link href={`/categories/${item.slug}`} asChild>
-              <Pressable style={styles.category}>
+              <Pressable>
                 <Image
                   source={{ uri: item.imageUrl }}
                   style={styles.categoryImage}
@@ -70,6 +73,9 @@ export const ListHeader = () => {
           recycleItems
           horizontal
           showsHorizontalScrollIndicator={false}
+          contentContainerStyle={{
+            gap: 10,
+          }}
         />
       </View>
     </View>

@@ -7,7 +7,7 @@ export default function Header({ title }: { title: string }) {
   const router = useRouter()
 
   return (
-    <View className='flex-row items-center justify-between px-4 min-h-10'>
+    <View className='flex-row items-center justify-between px-4 min-h-10 mb-4'>
       <TouchableOpacity
         onPress={() => router.back()}
         className='items-center justify-center p-2 rounded-full bg-gray-200'

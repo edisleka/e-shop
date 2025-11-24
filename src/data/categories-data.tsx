@@ -17,6 +17,12 @@ export const CATEGORIES: Category[] = [
     products: PRODUCTS.filter((product) => product.category.slug === 'body'),
   },
   {
+    name: 'Health',
+    slug: 'health',
+    imageUrl: 'https://www.researchdive.com/blogImages/nNir91lJiX.jpeg',
+    products: PRODUCTS.filter((product) => product.category.slug === 'health'),
+  },
+  {
     name: 'Makeup',
     slug: 'makeup',
     imageUrl:
@@ -29,5 +35,22 @@ export const CATEGORIES: Category[] = [
     imageUrl:
       'https://www.med7online.com/cdn/shop/articles/577149-6178196.jpg?v=1754042871&width=1200',
     products: PRODUCTS.filter((product) => product.category.slug === 'hair'),
+  },
+  {
+    name: 'Lifestyle',
+    slug: 'lifestyle',
+    imageUrl: 'https://www.psfc.in/wp-content/uploads/2023/04/1111_n.png',
+    products: PRODUCTS.filter(
+      (product) => product.category.slug === 'lifestyle'
+    ),
+  },
+  {
+    name: 'Fragrance',
+    slug: 'fragrance',
+    imageUrl:
+      'https://cdn.shopify.com/s/files/1/0785/0406/7368/files/Types_of_Fragrances_480x480.jpg?v=1718008686',
+    products: PRODUCTS.filter(
+      (product) => product.category.slug === 'fragrance'
+    ),
   },
 ]

@@ -8,7 +8,7 @@ export const CategoryListHeader = ({
   imageUrl: string
 }) => {
   return (
-    <View className='gap-4 py-4'>
+    <View className='gap-4 pb-4'>
       <Image
         source={{ uri: imageUrl }}
         className='w-full h-50 rounded-lg'

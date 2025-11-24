@@ -14,12 +14,12 @@ export default function CartBadge() {
           <View>
             <FontAwesome
               name='shopping-cart'
-              size={25}
+              size={24}
               color='gray'
               style={{ opacity: pressed ? 0.5 : 1 }}
             />
 
-            <View className='absolute -top-1.5 right-2.5 bg-[#1BC464] rounded-xl w-5 h-5 justify-center items-center'>
+            <View className='absolute -top-1.5 right-2.5 bg-success rounded-xl w-4 h-4 justify-center items-center'>
               <Text className='text-white text-[10px] font-bold'>
                 {itemCount}
               </Text>
